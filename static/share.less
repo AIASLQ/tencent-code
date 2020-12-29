@@ -1,0 +1,136 @@
+@import '~@src/assets/less/common/normalize.less';
+@import '~@src/web-tools/less/common/mixin.less';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: PingFangSC-Regular, Microsoft YaHei;
+  position: relative;
+  background-color: #f8f9fb;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  // overflow: auto;
+  position: relative;
+  min-height: 640px;
+}
+
+/*
+ * 清除浮动
+ */
+.clearfix {
+  display: inline-block;
+
+  &:after {
+    display: block;
+    content: ".";
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+// 页面样式
+.content {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  @paddingLeftItem1: 16px;
+  @paddingLeftItem2: 27px;
+  background: #f8f9fb;
+
+  .header {
+    position: relative;
+    height: 44px;
+    padding: 0 @paddingLeftItem1;
+    background: #F8F9FB;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
+
+    .welcome-to-tm-meeting {
+      font-size: 12px;
+      color: #C8CACC;
+      text-align: right;
+      line-height: 20px;
+    }
+  }
+
+  // 控制会议已结束显示
+  .qrcode {
+    position: relative;
+    margin-top: 166px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >img {
+      padding: 2px;
+    }
+  }
+
+  .foot-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    margin: auto;
+    user-select: none;
+  }
+
+  #errorWrap {
+    display: none;
+  }
+
+  .foot-txt {
+    font-family: PingFangSC-Regular, Microsoft YaHei;
+    font-size: 16px;
+    color: #000;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    background: #F8F9FB;
+  }
+}
+
+.in-pc {
+  .app {
+    @contentHeight: 570px; // .content 的高度
+    min-height: @contentHeight + 20;
+    background: url('~@src/assets/imgs/detail/join_page_bg_2.png');
+    background: url('~@src/assets/imgs/detail/join_page_bg_2.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .content {
+      width: 375px;
+      min-height: @contentHeight;
+      max-height: @contentHeight + 154;
+      margin: auto;
+      border-radius: 6px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: #F8F9FB;
+
+      .foot-txt {
+        border-radius: 6px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+      }
+    }
+  }
+}
